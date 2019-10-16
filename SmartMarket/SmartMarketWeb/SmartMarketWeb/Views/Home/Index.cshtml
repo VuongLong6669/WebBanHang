@@ -1,0 +1,685 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Thương mại điện tử</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Titillium+Web:700|Source+Serif+Pro:400,700|Merriweather+Sans:400,700|Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    <!-- <link rel="stylesheet" href="//demo.productionready.io/main.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+
+    <style>
+      .form-search-product{
+            width: 85%;
+        }
+
+        .bg-light {
+            background-color: #ec5630!important;
+        }
+        .btn-outline-success {
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+        .navbar-light .navbar-brand {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: rgb(255, 255, 255);
+        }
+        .icon-cart{
+            border-color: transparent !important;
+            font-size: 25px;
+            color: white;
+        }
+        .btn-login-register {
+            display: -webkit-inline-box;
+        }
+        .image-banner1 > img,
+  .image-banner2 > img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+  }
+  .image-banner1 {
+    height: 50%;
+    padding-bottom: 7px;
+  }
+
+  .image-banner2 {
+    height: 50%;
+    padding-top: 7px;
+  }
+  .banner-product {
+    margin-top: 15px;
+  }
+  .ads-image {
+    padding-left: 0px;
+  }
+  .list-hot-image {
+    width: 45px;
+  }
+  .list-hot-text {
+    font-size: 13px;
+    color: black;
+    font-weight: 300;
+  }
+  .item-list-hot {
+    text-align: center;
+    width: 10%;
+    padding: 15px;
+  }
+  .list-hot {
+    background-color: white;
+    border-radius: 6px;
+    margin-top: 15px;
+  }
+  .ads-banner2 {
+    margin-top: 15px;
+  }
+  .image-ads-banner2 {
+    width: 100%;
+  }
+  .gridStyle {
+    width: "25%";
+    text-align: "center";
+  }
+  [nz-button] {
+    margin-right: 8px;
+    margin-bottom: 12px;
+  }
+
+  nz-button-group [nz-button] {
+    margin-right: 0;
+  }
+  .image-flash-sale {
+    width: 100%;
+  }
+  .product-flash-sale {
+    text-align: center;
+  }
+  .prosess-product {
+    width: 100%;
+    height: 18px;
+    background-color: #ec5630;
+    border-radius: 50px;
+  }
+  .price-product {
+    font-size: 22px;
+    font-weight: 400;
+    color: #ee4d2d;
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
+  .status-product {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #fff;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+  }
+  .card-header {
+    background-color: white;
+  }
+  .flash-sale {
+    margin-top: 15px;
+  }
+  .image-banner-product2 {
+    width: 100%;
+  }
+  .ads-banner3 {
+    margin-top: 15px;
+  }
+  .title-shop-mall {
+    text-decoration: none;
+    color: #d0011b;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  .image-shop-mall {
+    width: 100%;
+  }
+  .title-product-shop-mall {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgb(208, 1, 27);
+  }
+  .title-product-suggestions {
+    font-size: 12px;
+    color: black;
+  }
+  .price-product-suggestions {
+    color: #ee4d2d;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .image-danh-muc {
+    width: 100%;
+  }
+
+  .category {
+      margin-top: 15px;
+  }
+
+  .list-category {
+    text-align: center;
+    width: 10%;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    border-right: 1px solid rgba(0,0,0,.125);
+  }
+
+  .list-category:hover {
+    z-index: 1;
+    box-shadow: 0 0 0.3rem 0 rgba(0,0,0,0.3);
+  }
+
+  .list-item-flash {
+    width: 20%;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    border-right: 1px solid rgba(0,0,0,.125);
+  }
+
+  .list-flash-image {
+    width: 100%;
+  }
+
+  .list-flash-text {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 15px;
+    color: #ee4d2d;
+  }
+
+  .list-item-flash:hover {
+    z-index: 1;
+    box-shadow: 0 0 0.3rem 0 rgba(0,0,0,0.3);
+  }
+
+  .btn-show-all {
+    color: #ee4d2d;
+    border: none;
+    background: white;
+  }
+
+  .suggest-title {
+    padding: 15px 25px;
+    border-bottom: solid 4px rgb(238, 77, 45);
+  }
+
+  @@media screen and (max-width: 480px) and (min-width: 320px) {
+    .ads-image {
+      padding: 15px;
+    }
+  }
+  .title-footer {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin: 40px 0px 20px;
+    font-weight: 700;
+  }
+  .menu-customer-care {
+    list-style-type: none;
+    padding: 0;
+    font-size: 12px;
+  }
+  .menu-customer-care > li > a {
+    color: rgba(0, 0, 0, 0.54);
+  }
+  .menu-customer-care > li {
+    margin-bottom: 5px;
+  }
+  .menu-customer-care > li > a:hover {
+    color: #ee4d2d;
+  }
+  .image-footer{
+      width: 55px;
+      height: 30px;
+  }
+  .icon-social{
+      margin-right: 5px;
+      font-size: 15px;
+  }
+  .image-qr-code{
+      width: 86px;
+
+  }
+  .icon-download{
+      width: 85px;
+      margin-left: 15px;
+      margin-top: 8px;
+  }
+  .qr-code{
+      display: flex;
+      align-items: center;
+  }
+  .download{
+      flex-direction: column;
+  }
+  .footer-product{
+      background-color: white;
+      margin-top: 80px;
+      border-top: 3px solid #ee4d2d;
+  }
+
+    </style>
+
+</head>
+<body style="background-color: rgb(240,240,240);">
+
+    
+    <!-- BODY -->
+    <div class="container banner-product " style="margin-top: 105px;">
+        <div class="row">
+            <div class="col-md-8" style="padding: 0px; padding-right: 15px;">
+                <div class="slide-home">
+                    <div id="carouselExampleIndicators"
+                         class="carousel slide"
+                         data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://cf.shopee.vn/file/2f987a81cdd9aabab5ee2bcefcc4be63_xxhdpi"
+                                     class="d-block"
+                                     alt="..." />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://cf.shopee.vn/file/2f987a81cdd9aabab5ee2bcefcc4be63_xxhdpi"
+                                     class="d-block"
+                                     alt="..." />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://cf.shopee.vn/file/2f987a81cdd9aabab5ee2bcefcc4be63_xxhdpi"
+                                     class="d-block"
+                                     alt="..." />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://cf.shopee.vn/file/2f987a81cdd9aabab5ee2bcefcc4be63_xxhdpi"
+                                     class="d-block"
+                                     alt="..." />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ads-image" style="padding: 0;">
+                <div class="image-banner1">
+                    <img src="https://cf.shopee.vn/file/6e0344b7b0d5837d014b5e4547feb37e_xhdpi"
+                         alt="" />
+                </div>
+                <div class="image-banner2">
+                    <img src="https://cf.shopee.vn/file/ddd3f7230b43a32c7f76c6299ff1b477_xhdpi"
+                         alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="padding: 0;">
+                <div class="list-hot">
+                    <div class="row">
+                        <div class="item-list-hot">
+                            <a href="" style="text-decoration: none">
+                                <img src="https://cf.shopee.vn/file/1155b3a17a7321611ebd18c1a4ba08d1_xxhdpi"
+                                     alt=""
+                                     class="list-hot-image" />
+                                <p class="list-hot-text">Shopee Games</p>
+                            </a>
+                        </div>
+                        <div class="item-list-hot">
+                            <a href="" style="text-decoration: none">
+                                <img src="https://cf.shopee.vn/file/1155b3a17a7321611ebd18c1a4ba08d1_xxhdpi"
+                                     alt=""
+                                     class="list-hot-image" />
+                                <p class="list-hot-text">Shopee Games</p>
+                            </a>
+                        </div>
+                        <div class="item-list-hot">
+                            <a href="" style="text-decoration: none">
+                                <img src="https://cf.shopee.vn/file/1155b3a17a7321611ebd18c1a4ba08d1_xxhdpi"
+                                     alt=""
+                                     class="list-hot-image" />
+                                <p class="list-hot-text">Shopee Games</p>
+                            </a>
+                        </div>
+                        <div class="item-list-hot">
+                            <a href="" style="text-decoration: none">
+                                <img src="https://cf.shopee.vn/file/1155b3a17a7321611ebd18c1a4ba08d1_xxhdpi"
+                                     alt=""
+                                     class="list-hot-image" />
+                                <p class="list-hot-text">Shopee Games</p>
+                            </a>
+                        </div>
+                        <div class="item-list-hot">
+                            <a href="" style="text-decoration: none">
+                                <img src="https://cf.shopee.vn/file/1155b3a17a7321611ebd18c1a4ba08d1_xxhdpi"
+                                     alt=""
+                                     class="list-hot-image" />
+                                <p class="list-hot-text">Shopee Games</p>
+                            </a>
+                        </div>
+                        <div class="item-list-hot">
+                            <a href="" style="text-decoration: none">
+                                <img src="https://cf.shopee.vn/file/1155b3a17a7321611ebd18c1a4ba08d1_xxhdpi"
+                                     alt=""
+                                     class="list-hot-image" />
+                                <p class="list-hot-text">Shopee Games</p>
+                            </a>
+                        </div>
+                        <div class="item-list-hot">
+                            <a href="" style="text-decoration: none">
+                                <img src="https://cf.shopee.vn/file/1155b3a17a7321611ebd18c1a4ba08d1_xxhdpi"
+                                     alt=""
+                                     class="list-hot-image" />
+                                <p class="list-hot-text">Shopee Games</p>
+                            </a>
+                        </div>
+                        <div class="item-list-hot">
+                            <a href="" style="text-decoration: none">
+                                <img src="https://cf.shopee.vn/file/1155b3a17a7321611ebd18c1a4ba08d1_xxhdpi"
+                                     alt=""
+                                     class="list-hot-image" />
+                                <p class="list-hot-text">Shopee Games</p>
+                            </a>
+                        </div>
+                        <div class="item-list-hot">
+                            <a href="" style="text-decoration: none">
+                                <img src="https://cf.shopee.vn/file/1155b3a17a7321611ebd18c1a4ba08d1_xxhdpi"
+                                     alt=""
+                                     class="list-hot-image" />
+                                <p class="list-hot-text">Shopee Games</p>
+                            </a>
+                        </div>
+                        <div class="item-list-hot">
+                            <a href="" style="text-decoration: none">
+                                <img src="https://cf.shopee.vn/file/1155b3a17a7321611ebd18c1a4ba08d1_xxhdpi"
+                                     alt=""
+                                     class="list-hot-image" />
+                                <p class="list-hot-text">Shopee Games</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="padding: 0;">
+                <div class="ads-banner2">
+                    <img src="https://cf.shopee.vn/file/ea4c3ed6c914082fb53c741e4e5d9cc0_xxhdpi"
+                         alt=""
+                         class="image-ads-banner2" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="card category" style="width: 100%; border: none; border-radius: unset;">
+                <div class="card-header" style="font-size: 22px">
+                    DANH MỤC
+                </div>
+                <div class="row l-category" style="display: flex; padding: 0 15px;">
+                    <!-- <div class="col-md-12"> -->
+                    <div class="list-category">
+                        <a style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/687f3967b7c2fe6a134a2c11894eea4b_tn"
+                                 alt=""
+                                 class="list-hot-image image" />
+                            <p class="list-hot-text name">Thời Trang Nam</p>
+                        </a>
+                    </div>
+
+                    <div class="list-category">
+                        <a style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/687f3967b7c2fe6a134a2c11894eea4b_tn"
+                                 alt=""
+                                 class="list-hot-image image" />
+                            <p class="list-hot-text name">Thời Trang Nam</p>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="card flash-sale" style="width: 100%; border: none; border-radius: unset;">
+                <div class="card-header">
+                    <img src="https://cdngarenanow-a.akamaihd.net/shopee/shopee-pcmall-live-sg/assets/1005f537d149230463364c8bfdc74c2f.png" alt="">
+                </div>
+                <div class="row" style="display: flex; padding: 0 15px;">
+                    <!-- <div class="col-md-12"> -->
+                    <div class="list-item-flash">
+                        <a href="" style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
+                                 alt=""
+                                 class="list-flash-image" />
+                            <p class="list-flash-text">₫ 109.000</p>
+                        </a>
+                    </div>
+                    <div class="list-item-flash">
+                        <a href="" style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
+                                 alt=""
+                                 class="list-flash-image" />
+                            <p class="list-flash-text">₫ 109.000</p>
+                        </a>
+                    </div>
+                    <div class="list-item-flash">
+                        <a href="" style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
+                                 alt=""
+                                 class="list-flash-image" />
+                            <p class="list-flash-text">₫ 109.000</p>
+                        </a>
+                    </div>
+                    <div class="list-item-flash">
+                        <a href="" style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
+                                 alt=""
+                                 class="list-flash-image" />
+                            <p class="list-flash-text">₫ 109.000</p>
+                        </a>
+                    </div>
+                    <div class="list-item-flash">
+                        <a href="" style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
+                                 alt=""
+                                 class="list-flash-image" />
+                            <p class="list-flash-text">₫ 109.000</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="card suggest-sale" style="width: 100%; border: none; border-radius: unset; margin-top: 15px;">
+                <div class="nav" style="font-size: 22px">
+                    <ul class="suggest-title">
+                        <li style="list-style: none; color: rgb(238, 77, 45)">
+                            GỢI Ý HÔM NAY
+                        </li>
+                    </ul>
+                </div>
+                <div class="row" style="display: flex; padding: 0 15px;">
+                    <!-- <div class="col-md-12"> -->
+                    <div class="list-item-flash">
+                        <a href="" style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
+                                 alt=""
+                                 class="list-flash-image" />
+                            <p class="list-flash-text">₫ 109.000</p>
+                        </a>
+                    </div>
+                    <div class="list-item-flash">
+                        <a href="" style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
+                                 alt=""
+                                 class="list-flash-image" />
+                            <p class="list-flash-text">₫ 109.000</p>
+                        </a>
+                    </div>
+                    <div class="list-item-flash">
+                        <a href="" style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
+                                 alt=""
+                                 class="list-flash-image" />
+                            <p class="list-flash-text">₫ 109.000</p>
+                        </a>
+                    </div>
+                    <div class="list-item-flash">
+                        <a href="" style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
+                                 alt=""
+                                 class="list-flash-image" />
+                            <p class="list-flash-text">₫ 109.000</p>
+                        </a>
+                    </div>
+                    <div class="list-item-flash">
+                        <a href="" style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
+                                 alt=""
+                                 class="list-flash-image" />
+                            <p class="list-flash-text">₫ 109.000</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END BODY -->
+    <!-- FOOTER -->
+    <div class="footer-product">
+        <div class="container">
+            <div class="footer">
+                <div class="row">
+                    <div class="col-md-2">
+                        <p class="title-footer ">CHĂM SÓC KHÁCH HÀNG</p>
+                        <ul class="menu-customer-care">
+                            <li><a href="">Trung Tâm Trợ Giúp</a></li>
+                            <li><a href="">Shopee Mall</a></li>
+                            <li><a href="">Hướng Dẫn Mua Hàng</a></li>
+                            <li><a href="">Hướng Dẫn Bán Hàng</a></li>
+                            <li><a href="">Thanh Toán</a></li>
+                            <li><a href="">Shopee Xu</a></li>
+                            <li><a href="">Vận Chuyển</a></li>
+                            <li><a href="">Trả Hàng & Hoàn Tiền</a></li>
+                            <li><a href="">Chăm Sóc Khách Hàng</a></li>
+                            <li><a href="">Chính Sách Bảo Hành</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <p class="title-footer ">VỀ SHOPEE</p>
+                        <ul class="menu-customer-care">
+                            <li><a href="">Giới Thiệu Về Shopee</a></li>
+                            <li><a href="">Tuyển Dụng</a></li>
+                            <li><a href="">Điều Khoản Shopee</a></li>
+                            <li><a href="">Chính Sách Bảo Mật</a></li>
+                            <li><a href="">Chính Hãng</a></li>
+                            <li><a href="">Kênh Người Bán</a></li>
+                            <li><a href="">Flash Sales</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <p class="title-footer ">THANH TOÁN</p>
+                        <div class="row">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/1200px-Visa.svg.png"
+                                 alt=""
+                                 class="image-footer" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/1200px-Visa.svg.png"
+                                 alt=""
+                                 class="image-footer" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/1200px-Visa.svg.png"
+                                 alt=""
+                                 class="image-footer" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/1200px-Visa.svg.png"
+                                 alt=""
+                                 class="image-footer" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/1200px-Visa.svg.png"
+                                 alt=""
+                                 class="image-footer" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/1200px-Visa.svg.png"
+                                 alt=""
+                                 class="image-footer" />
+                        </div>
+                        <p class="title-footer ">ĐƠN VỊ VẬN CHUYỂN</p>
+                        <div class="row">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/1200px-Visa.svg.png"
+                                 alt=""
+                                 class="image-footer" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/1200px-Visa.svg.png"
+                                 alt=""
+                                 class="image-footer" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/1200px-Visa.svg.png"
+                                 alt=""
+                                 class="image-footer" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/1200px-Visa.svg.png"
+                                 alt=""
+                                 class="image-footer" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/1200px-Visa.svg.png"
+                                 alt=""
+                                 class="image-footer" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/1200px-Visa.svg.png"
+                                 alt=""
+                                 class="image-footer" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="title-footer ">THEO DÕI CHÚNG TÔI TRÊN</p>
+                        <ul class="menu-customer-care">
+                            <li>
+                                <i class="fab fa-facebook-square icon-social"></i><a href="">Facebook</a>
+                            </li>
+                            <li>
+                                <i class="fab fa-instagram icon-social"></i><a href="">Instagram</a>
+                            </li>
+                            <li>
+                                <i class="fab fa-linkedin icon-social"></i><a href="">LinkedIn</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="title-footer ">TẢI ỨNG DỤNG SHOPEE NGAY THÔI</p>
+                        <div class="qr-code">
+                            <img src="https://cdn.qrstuff.com/images/default_qrcode.png"
+                                 alt=""
+                                 class="image-qr-code" />
+                            <div class="download">
+                                <img src="https://www.vr.fi/cs/vr/img/d/1/1/appstore_EN.png?blobnocache=false"
+                                     alt=""
+                                     class="icon-download" />
+                                <img src="https://static.apkpure.com/www/static/imgs/google-play-badge.png"
+                                     alt=""
+                                     class="icon-download" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- END FOOTER -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    <script type="text/javascript" src="@Url.Content("/js/Constant.js")"></script>
+    <script src="~/js/Constant.js"></script>
+    <script src="~/js/Home.js"></script>
+</body>
+</html>
