@@ -1,0 +1,281 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Thương mại điện tử</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Titillium+Web:700|Source+Serif+Pro:400,700|Merriweather+Sans:400,700|Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    <!-- <link rel="stylesheet" href="//demo.productionready.io/main.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+
+    <style>
+
+        /* CSS HEADER */
+        .form-search-product {
+            width: 85%;
+        }
+
+        .bg-light {
+            background-color: #ec5630 !important;
+        }
+
+        .btn-outline-success {
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        .navbar-light .navbar-brand {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: rgb(255, 255, 255);
+        }
+
+        .icon-cart {
+            border-color: transparent !important;
+            font-size: 25px;
+            color: white;
+        }
+
+        .btn-login-register {
+            display: -webkit-inline-box;
+        }
+        /* END CSS HEADER */
+
+        /* CSS BODY */
+        .cart-header {
+            display: flex;
+            align-items: center;
+            height: 60px;
+            background: white;
+            padding-left: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .cart-page-product-header {
+            align-items: center;
+            height: 3.4375rem;
+            background: white;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .cart-page-product-body {
+            margin-top: 15px;
+            align-items: center;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .image-pr-cart {
+            width: 80px;
+            padding: 5px;
+        }
+
+        .title-cart-product {
+            padding-left: 15px
+        }
+
+        .cart-page-footer {
+            margin-top: 15px;
+            background: white;
+            border-radius: 5px;
+            padding: 15px 0;
+        }
+
+        .btn-pay {
+            width: 50%;
+            border: #ec5630;
+            background: #ec5630;
+            font-size: 20px;
+        }
+
+            .btn-pay:hover {
+                background: #ec5630
+            }
+        /* END CSS BODY */
+
+        /* CSS FOOTER */
+        .title-footer {
+            font-size: 12px;
+            text-transform: uppercase;
+            margin: 40px 0px 20px;
+            font-weight: 700;
+        }
+
+        .menu-customer-care {
+            list-style-type: none;
+            padding: 0;
+            font-size: 12px;
+        }
+
+            .menu-customer-care > li > a {
+                color: rgba(0, 0, 0, 0.54);
+            }
+
+            .menu-customer-care > li {
+                margin-bottom: 5px;
+            }
+
+                .menu-customer-care > li > a:hover {
+                    color: #ee4d2d;
+                }
+
+        .image-footer {
+            width: 55px;
+            height: 30px;
+        }
+
+        .icon-social {
+            margin-right: 5px;
+            font-size: 15px;
+        }
+
+        .image-qr-code {
+            width: 86px;
+        }
+
+        .icon-download {
+            width: 85px;
+            margin-left: 15px;
+            margin-top: 8px;
+        }
+
+        .qr-code {
+            display: flex;
+            align-items: center;
+        }
+
+        .download {
+            flex-direction: column;
+        }
+
+        .footer-product {
+            background-color: white;
+            margin-top: 80px;
+            border-top: 3px solid #ee4d2d;
+        }
+        /* END CSS FOOTER */
+    </style>
+</head>
+<body style="background-color: rgb(240,240,240);">
+    <!-- END HEADER -->
+    <!-- BODY  -->
+    <div class="container" style="margin-top: 105px;">
+        <div class="cart-header">
+            <h3>Giỏ Hàng</h3>
+        </div>
+        <div class="cart-body">
+            <div class="container cart">
+                <div class="row cart-page-product-header">
+                    <div class="col-md-4">
+                        <span class="title-cart1">Sản Phẩm</span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span class="title-cart">Đơn Giá</span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span class="title-cart">Số Lượng</span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span class="title-cart">Số Tiền</span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span class="title-cart">Thao Tác</span>
+                    </div>
+                </div>
+
+                <div class="row cart-page-product-body">
+                    <div class="col-md-4">
+                        <img src="https://cf.shopee.vn/file/50d2208e052ee0933927daf801970b72_tn"
+                             alt=""
+                             class="image-pr-cart" />
+                        <span class="title-cart-product">Cầu nối dây mạng RJ45 -DC1809</span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span class="title-cart">₫1.000</span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <input type="number" style="width: 50%" value="1">
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span class="title-cart-price">₫10.000</span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span class="title-cart">Xóa</span>
+                    </div>
+                </div>
+
+                <div class="row cart-page-product-body">
+                    <div class="col-md-4">
+                        <img src="https://cf.shopee.vn/file/50d2208e052ee0933927daf801970b72_tn"
+                             alt=""
+                             class="image-pr-cart" />
+                        <span class="title-cart-product">Cầu nối dây mạng RJ45 -DC1809</span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span class="title-cart">₫1.000</span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <input type="number" style="width: 50%" value="1">
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span class="title-cart-price">₫10.000</span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span class="title-cart">Xóa</span>
+                    </div>
+                </div>
+
+                <div class="row cart-page-footer">
+                    <div class="col-md-6">
+                        <form id="discount-coupon-form">
+                            <div class="discount">
+                                <h5 style="color: #00498e; font-weight: bold;">Mã VOUCHER</h5>
+                                <div class="discount-form">
+                                    <label style="font-size: 13px;">Nhập mã voucher mua hàng nếu có</label>
+                                    <div class="row" style="padding-left: 15px">
+                                        <input type="text">
+                                        <button>Sử dụng</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="total">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong style="float: right">Tổng Cộng: </strong>
+                                </div>
+                                <div class="col-md-6">
+                                    <strong>5.000.000 ₫</strong>
+                                </div>
+                            </div>
+                            <div class="pay text-center" style="margin: 15px 0;">
+                                <button class="btn btn-primary btn-pay">Thanh Toán</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END BODY -->
+    <!-- FOOTER -->
+
+    <!-- END FOOTER -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+</body>
+</html>

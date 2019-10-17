@@ -1,0 +1,337 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Thương mại điện tử</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Titillium+Web:700|Source+Serif+Pro:400,700|Merriweather+Sans:400,700|Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    <!-- <link rel="stylesheet" href="//demo.productionready.io/main.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+
+    <style>
+
+        /* CSS HEADER */
+        .form-search-product {
+            width: 85%;
+        }
+
+        .bg-light {
+            background-color: #ec5630 !important;
+        }
+
+        .btn-outline-success {
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        .navbar-light .navbar-brand {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: rgb(255, 255, 255);
+        }
+
+        .icon-cart {
+            border-color: transparent !important;
+            font-size: 25px;
+            color: white;
+        }
+
+        .btn-login-register {
+            display: -webkit-inline-box;
+        }
+        /* END CSS HEADER */
+
+        /* CSS BODY */
+        .category {
+            margin-top: 15px;
+            background: white;
+        }
+
+        img.img-product {
+            width: 100%;
+            padding: 15px;
+        }
+
+        .description-product {
+            margin: 15px 0;
+        }
+
+        .ul-price {
+            padding: 15px;
+        }
+
+        .li-price {
+            list-style: none;
+        }
+
+        .price-text {
+            margin-bottom: 0;
+        }
+
+            .price-text > b {
+                font-size: 24px;
+                color: #e3007b;
+            }
+
+        .title-gift {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        p.price-text.text-gift {
+            font-size: 14px;
+        }
+
+        .ul-order {
+            margin: 15px;
+            padding: 7px 15px;
+            background: #ec5630;
+        }
+
+        .li-order {
+            text-align: center;
+        }
+
+        .a-order {
+            display: inline-grid;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 13px;
+        }
+
+            .a-order:hover {
+                text-decoration: none;
+                color: #ffffff;
+            }
+
+            .a-order > strong {
+                font-size: 20px;
+            }
+
+        .suggest-title {
+            padding: 15px 25px;
+            border-bottom: solid 4px rgb(238, 77, 45);
+        }
+
+        .list-item-flash {
+            width: 20%;
+            border-bottom: 1px solid rgba(0,0,0,.125);
+            border-right: 1px solid rgba(0,0,0,.125);
+        }
+
+            .list-item-flash:hover {
+                z-index: 1;
+                box-shadow: 0 0 0.3rem 0 rgba(0,0,0,0.3);
+            }
+
+        .list-flash-image {
+            width: 100%;
+            padding: 0 15px;
+        }
+
+        .list-flash-name {
+            padding: 15px 15px 0 15px;
+        }
+
+        .list-flash-text {
+            padding-left: 15px;
+            font-size: 24px;
+            margin-top: 15px;
+            margin-bottom: 0px;
+            color: #e3007b;
+            font-weight: bold;
+        }
+        /* END CSS BODY */
+
+        /* CSS FOOTER */
+        .title-footer {
+            font-size: 12px;
+            text-transform: uppercase;
+            margin: 40px 0px 20px;
+            font-weight: 700;
+        }
+
+        .menu-customer-care {
+            list-style-type: none;
+            padding: 0;
+            font-size: 12px;
+        }
+
+            .menu-customer-care > li > a {
+                color: rgba(0, 0, 0, 0.54);
+            }
+
+            .menu-customer-care > li {
+                margin-bottom: 5px;
+            }
+
+                .menu-customer-care > li > a:hover {
+                    color: #ee4d2d;
+                }
+
+        .image-footer {
+            width: 55px;
+            height: 30px;
+        }
+
+        .icon-social {
+            margin-right: 5px;
+            font-size: 15px;
+        }
+
+        .image-qr-code {
+            width: 86px;
+        }
+
+        .icon-download {
+            width: 85px;
+            margin-left: 15px;
+            margin-top: 8px;
+        }
+
+        .qr-code {
+            display: flex;
+            align-items: center;
+        }
+
+        .download {
+            flex-direction: column;
+        }
+
+        .footer-product {
+            background-color: white;
+            margin-top: 80px;
+            border-top: 3px solid #ee4d2d;
+        }
+        /* END CSS FOOTER */
+    </style>
+
+</head>
+<body style="background-color: rgb(240,240,240);">
+    <!-- END HEADER -->
+    <!-- BODY -->
+    <div class="container" style="margin-top: 105px;">
+        <div class="row">
+            <div class="card category" style="width: 100%; border: none; border-radius: unset;">
+                <div class="card-header" style="font-size: 22px">
+                    Máy giặt 9.0 KG Panasonic NA-F90VS9WRV
+                </div>
+                <div class="row" style="display: flex; padding: 0 15px;">
+                    <div class="col-md-5">
+                        <div class="">
+                            <img class="img-product" src="https://cdn.mediamart.vn/Product/-J7kx9j.png" alt="">
+                        </div>
+                        <div class="description-product">
+                            <h5 style="font-weight: bold;">Đặc điểm nổi bật</h5>
+                            <p>
+                                Công nghệ giặt Aquabeat mạnh mẽ<br>
+                                Lồng giặt Sazanami tránh làm hư tổn quần áo<br>
+                                Giặt quần áo sạch hơn với kỹ thuật luân chuyển luồng nước<br>
+                                Khối lượng giặt 9 kg là lựa chọn phù hợp cho những gia đình từ 5 đến 6 thành viên.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="ul-price">
+                            <li class="li-price"><p class="price-text">giá bán: <b>5.000.000 ₫</b></p></li>
+                        </ul>
+                        <ul class="" style="padding: 0 15px">
+                            <li class="li-price title-gift">Quà tặng</li>
+                            <li class="li-price"><p class="price-text text-gift">Bảo hành: 24 tháng-Xuất xứ: Việt Nam</p></li>
+                            <li class="li-price"><p class="price-text text-gift">Tặng PMH 1.000.000đ</p></li>
+                            <li class="li-price"><p class="price-text text-gift">Tặng Bàn là hơi nước Electrolux</p></li>
+                        </ul>
+                        <ul class="ul-order">
+                            <li class="li-price li-order">
+                                <a class="a-order" href="">
+                                    <strong>MUA NGAY</strong>
+                                    Giao hàng tận nơi
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card suggest-sale" style="width: 100%; border: none; border-radius: unset; margin-top: 15px;">
+                <div class="nav" style="font-size: 22px">
+                    <ul class="suggest-title">
+                        <li style="list-style: none; color: rgb(238, 77, 45)">
+                            Sản Phầm Liên Quan
+                        </li>
+                    </ul>
+                </div>
+                <div class="row" style="display: flex; padding: 0 15px;">
+                    <!-- <div class="col-md-12"> -->
+                    <div class="list-item-flash">
+                        <a href="" style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
+                                 alt=""
+                                 class="list-flash-image" />
+                            <p class="list-flash-name">Máy giặt 9.0 KG Panasonic NA-F90VS9WRV</p>
+                            <p class="list-flash-text">₫ 109.000</p>
+                        </a>
+                    </div>
+                    <div class="list-item-flash">
+                        <a href="" style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
+                                 alt=""
+                                 class="list-flash-image" />
+                            <p class="list-flash-name">Máy giặt 9.0 KG Panasonic NA-F90VS9WRV</p>
+                            <p class="list-flash-text">₫ 109.000</p>
+                        </a>
+                    </div>
+                    <div class="list-item-flash">
+                        <a href="" style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
+                                 alt=""
+                                 class="list-flash-image" />
+                            <p class="list-flash-name">Máy giặt 9.0 KG Panasonic NA-F90VS9WRV</p>
+                            <p class="list-flash-text">₫ 109.000</p>
+                        </a>
+                    </div>
+                    <div class="list-item-flash">
+                        <a href="" style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
+                                 alt=""
+                                 class="list-flash-image" />
+                            <p class="list-flash-name">Máy giặt 9.0 KG Panasonic NA-F90VS9WRV</p>
+                            <p class="list-flash-text">₫ 109.000</p>
+                        </a>
+                    </div>
+                    <div class="list-item-flash">
+                        <a href="" style="text-decoration: none">
+                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
+                                 alt=""
+                                 class="list-flash-image" />
+                            <p class="list-flash-name">Máy giặt 9.0 KG Panasonic NA-F90VS9WRV</p>
+                            <p class="list-flash-text">₫ 109.000</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END BODY -->
+    <!-- FOOTER -->
+   
+    <!-- END FOOTER -->
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+</body>
