@@ -33,9 +33,10 @@ namespace SmartMarketServer.Controllers
 
         [HttpGet]
         [Route("get-new")]
-        public IEnumerable<List<HangHoa>> GetNewsHangHoa()
+        public ActionResult<List<HangHoa>> GetNewsHangHoa()
         {
-            yield return service.findNewProduct(4);
+            var listHH = service.findNewProduct(5);
+            return Ok(listHH);
         }
 
         // GET: api/HangHoas/5

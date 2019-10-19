@@ -19,6 +19,7 @@ namespace SmartMarketServer.Service
             //HangHoa ha1 = new HangHoa();
             //ha1.TenHangHoa = "Hang hoa 1";
             //ha1.SoLuong = 4;
+
             return conext.HangHoa.OrderBy(a => a.CreateDate).Take(top).ToList<HangHoa>();
             //List<HangHoa> list  = conext.HangHoa.ToList<HangHoa>();
             //return list;

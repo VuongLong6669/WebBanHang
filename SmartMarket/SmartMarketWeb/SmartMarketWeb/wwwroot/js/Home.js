@@ -1,5 +1,8 @@
 ﻿$(document).ready(function () {
+    getApi("product/get-new", null, shownNewProduct, null);
+    getApi("product/get-new", null, shownTrendProduct, null);
     getApi("cate/getall", null, showLoaiHangHoa, null);
+ 
 });
 function showLoaiHangHoa(listHangHoa) {
     console.log(listHangHoa);
@@ -17,4 +20,12 @@ function showLoaiHangHoa(listHangHoa) {
             alert(i);
         })
     }
+}
+
+function shownNewProduct(listHangHoa) {
+    showProduct(listHangHoa, "#list-new-product");
+}
+
+function shownTrendProduct(listHangHoa) {
+    showProduct(listHangHoa, "#list-trand-product");
 }

@@ -221,7 +221,7 @@
         <div class="row">
             <div class="card category" style="width: 100%; border: none; border-radius: unset;">
                 <div class="card-header" style="font-size: 22px">
-                    Máy giặt 9.0 KG Panasonic NA-F90VS9WRV
+                    <span id="name">Máy giặt 9.0 KG Panasonic NA-F90VS9WRV</span>
                 </div>
                 <div class="row" style="display: flex; padding: 0 15px;">
                     <div class="col-md-5">
@@ -240,7 +240,7 @@
                     </div>
                     <div class="col-md-4">
                         <ul class="ul-price">
-                            <li class="li-price"><p class="price-text">giá bán: <b>5.000.000 ₫</b></p></li>
+                            <li class="li-price"><p class="price-text">giá bán: <b id="price">5.000.000 ₫</b></p></li>
                         </ul>
                         <ul class="" style="padding: 0 15px">
                             <li class="li-price title-gift">Quà tặng</li>
@@ -252,6 +252,10 @@
                             <li class="li-price li-order">
                                 <a class="a-order" href="">
                                     <strong>MUA NGAY</strong>
+                                    Giao hàng tận nơi
+                                </a>
+                                <a class="a-order" href="">
+                                    <strong>Thêm vào giỏ hàng</strong>
                                     Giao hàng tận nơi
                                 </a>
                             </li>
@@ -273,7 +277,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="row" style="display: flex; padding: 0 15px;">
+                <div class="row" style="display: flex; padding: 0 15px;" id="product-relate">
                     <!-- <div class="col-md-12"> -->
                     <div class="list-item-flash">
                         <a href="" style="text-decoration: none">
@@ -284,49 +288,11 @@
                             <p class="list-flash-text">₫ 109.000</p>
                         </a>
                     </div>
-                    <div class="list-item-flash">
-                        <a href="" style="text-decoration: none">
-                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
-                                 alt=""
-                                 class="list-flash-image" />
-                            <p class="list-flash-name">Máy giặt 9.0 KG Panasonic NA-F90VS9WRV</p>
-                            <p class="list-flash-text">₫ 109.000</p>
-                        </a>
-                    </div>
-                    <div class="list-item-flash">
-                        <a href="" style="text-decoration: none">
-                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
-                                 alt=""
-                                 class="list-flash-image" />
-                            <p class="list-flash-name">Máy giặt 9.0 KG Panasonic NA-F90VS9WRV</p>
-                            <p class="list-flash-text">₫ 109.000</p>
-                        </a>
-                    </div>
-                    <div class="list-item-flash">
-                        <a href="" style="text-decoration: none">
-                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
-                                 alt=""
-                                 class="list-flash-image" />
-                            <p class="list-flash-name">Máy giặt 9.0 KG Panasonic NA-F90VS9WRV</p>
-                            <p class="list-flash-text">₫ 109.000</p>
-                        </a>
-                    </div>
-                    <div class="list-item-flash">
-                        <a href="" style="text-decoration: none">
-                            <img src="https://cf.shopee.vn/file/9fcfce027e9cb529ad84acf827b24722_tn"
-                                 alt=""
-                                 class="list-flash-image" />
-                            <p class="list-flash-name">Máy giặt 9.0 KG Panasonic NA-F90VS9WRV</p>
-                            <p class="list-flash-text">₫ 109.000</p>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
     <!-- END BODY -->
     <!-- FOOTER -->
-   
     <!-- END FOOTER -->
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -334,4 +300,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    <script type="text/javascript" src="@Url.Content("/js/ProductDetail")"></script>
+    <script src="~/js/Constant.js"></script>
+    <script src="~/js/ProductDetail.js"></script>
 </body>
