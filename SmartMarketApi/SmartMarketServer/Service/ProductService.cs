@@ -11,7 +11,7 @@ namespace SmartMarketServer.Service
     public class ProductService
     {
         QuanLyBanHangSieuThiMediaMartContext conext = new QuanLyBanHangSieuThiMediaMartContext();
-        public BaseResponse findNewProduct(int top)
+        public ListMatHangResponse findNewProduct(int top)
         {
             ListMatHangResponse response = new ListMatHangResponse();
             

@@ -26,16 +26,25 @@ namespace SmartMarketServer.Controllers
         // GET: api/HangHoas
         [HttpGet]
         [Route("get-all")]
-        public IEnumerable<HangHoa> GetHangHoa()
+        public ActionResult<List<HangHoa>> GetHangHoa()
         {
-            yield return new HangHoa();
+            var listHH = _context.HangHoa.ToList<HangHoa>();
+            return Ok(listHH);
         }
 
-        [HttpGet("{count}")]
-        [Route("get-new")]
+        [HttpGet]
+        [Route("get-by-cate/{id}")]
+        public ActionResult<List<HangHoa>> GetByCate([FromRoute] int id)
+        {
+            var listHH = _context.HangHoa.Where( a => a.IdLoaiHang == id).ToList<HangHoa>();
+            return Ok(listHH);
+        }
+
+        [HttpGet]
+        [Route("get-new/{count}")]
         public ActionResult<BaseResponse> GetNewsHangHoa([FromRoute] int count)
         {
-            var listHH = service.findNewProduct(count);
+            var listHH = _context.HangHoa.OrderBy(a => a.CreateDate).Take(count).ToList<HangHoa>();
             return Ok(listHH);
         }
 
