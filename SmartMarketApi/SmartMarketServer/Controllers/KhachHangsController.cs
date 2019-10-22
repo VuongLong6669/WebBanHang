@@ -86,6 +86,7 @@ namespace SmartMarketServer.Controllers
 
         // POST: api/KhachHangs
         [HttpPost]
+        [Route("register")]
         public async Task<IActionResult> PostKhachHang([FromBody] CreateKHRequest request)
         {
             if (!ModelState.IsValid)

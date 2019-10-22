@@ -22,7 +22,6 @@ namespace SmartMarketServer.Models
         public int? IdVoucher { get; set; }
         public string MoTaHangHoa { get; set; }
         public DateTime? CreateDate { get; set; }
-
         public LoaiHang IdLoaiHangNavigation { get; set; }
         public KhuyenMai IdVoucherNavigation { get; set; }
         public ICollection<ChiTietDonDatHang> ChiTietDonDatHang { get; set; }

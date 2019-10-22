@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartMarketServer.Models;
 using SmartMarketServer.Service;
-
+using SmartMarketServer.Response;
 namespace SmartMarketServer.Controllers
 {
     [Route("api/product")]
@@ -31,11 +31,11 @@ namespace SmartMarketServer.Controllers
             yield return new HangHoa();
         }
 
-        [HttpGet]
+        [HttpGet("{count}")]
         [Route("get-new")]
-        public ActionResult<List<HangHoa>> GetNewsHangHoa()
+        public ActionResult<BaseResponse> GetNewsHangHoa([FromRoute] int count)
         {
-            var listHH = service.findNewProduct(5);
+            var listHH = service.findNewProduct(count);
             return Ok(listHH);
         }
 
