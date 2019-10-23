@@ -188,10 +188,6 @@ namespace SmartMarketServer.Models
                     .HasMaxLength(32)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.IdLevelNavigation)
-                    .WithMany(p => p.KhachHang)
-                    .HasForeignKey(d => d.IdLevel)
-                    .HasConstraintName("FK_Level_KH");
             });
 
             modelBuilder.Entity<KhuyenMai>(entity =>
