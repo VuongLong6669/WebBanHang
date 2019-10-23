@@ -23,7 +23,6 @@ namespace SmartMarketServer.Models
         public virtual DbSet<HangHoa> HangHoa { get; set; }
         public virtual DbSet<KhachHang> KhachHang { get; set; }
         public virtual DbSet<KhuyenMai> KhuyenMai { get; set; }
-        public virtual DbSet<Level> Level { get; set; }
         public virtual DbSet<LoaiHang> LoaiHang { get; set; }
         public virtual DbSet<MigrationHistory> MigrationHistory { get; set; }
         public virtual DbSet<NhaCungCap> NhaCungCap { get; set; }
@@ -38,7 +37,7 @@ namespace SmartMarketServer.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=git.alphawaytech.com,7049;Database=QuanLyBanHangSieuThiMediaMart;User Id=sa;Password=654321aA@;Trusted_Connection=false;MultipleActiveResultSets=true");
+                optionsBuilder.UseSqlServer("Server=git.alphawaytech.com,7049;Database=QuanLyBanHangSieuThiMediaMart;User Id=sa;Password=654321aA@;Trusted_Connection=false;MultipleActiveResultSets=true;");
             }
         }
 
@@ -127,8 +126,6 @@ namespace SmartMarketServer.Models
 
                 entity.Property(e => e.TinhTrangDonDatHangNcc).HasColumnName("TinhTrangDonDatHangNCC");
 
-                entity.Property(e => e.TongTienDonDatHangNcc).HasColumnName("TongTienDonDatHangNCC");
-
                 entity.HasOne(d => d.IdNhaCungCapNavigation)
                     .WithMany(p => p.DonDatHangNcc)
                     .HasForeignKey(d => d.IdNhaCungCap)
@@ -138,8 +135,6 @@ namespace SmartMarketServer.Models
             modelBuilder.Entity<HangHoa>(entity =>
             {
                 entity.HasKey(e => e.IdHangHoa);
-
-                entity.Property(e => e.Anh).HasMaxLength(150);
 
                 entity.Property(e => e.CreateDate).HasColumnType("datetime");
 
@@ -187,7 +182,6 @@ namespace SmartMarketServer.Models
                     .IsRequired()
                     .HasMaxLength(32)
                     .IsUnicode(false);
-
             });
 
             modelBuilder.Entity<KhuyenMai>(entity =>
@@ -203,23 +197,13 @@ namespace SmartMarketServer.Models
                 entity.Property(e => e.NgayTaoVoucher).HasColumnType("datetime");
 
                 entity.Property(e => e.TenVoucher).HasMaxLength(50);
-
-                entity.HasOne(d => d.IdLevelNavigation)
-                    .WithMany(p => p.KhuyenMai)
-                    .HasForeignKey(d => d.IdLevel)
-                    .HasConstraintName("FK_LV_KM");
-            });
-
-            modelBuilder.Entity<Level>(entity =>
-            {
-                entity.HasKey(e => e.IdLevel);
-
-                entity.Property(e => e.TenLevel).HasMaxLength(50);
             });
 
             modelBuilder.Entity<LoaiHang>(entity =>
             {
                 entity.HasKey(e => e.IdLoaiHang);
+
+                entity.Property(e => e.Anh).HasMaxLength(256);
 
                 entity.Property(e => e.TenLoaiHang).HasMaxLength(50);
             });
@@ -294,7 +278,7 @@ namespace SmartMarketServer.Models
                 entity.HasOne(d => d.IdNhomNhanVienNavigation)
                     .WithMany(p => p.NhanVien)
                     .HasForeignKey(d => d.IdNhomNhanVien)
-                    .HasConstraintName("FK__NhanVien__IdNhom__0D7A0286");
+                    .HasConstraintName("FK__NhanVien__IdNhom__60A75C0F");
             });
 
             modelBuilder.Entity<NhomNhanVien>(entity =>
@@ -342,12 +326,12 @@ namespace SmartMarketServer.Models
                 entity.HasOne(d => d.IdNhomNhanVienNavigation)
                     .WithMany(p => p.QuyenNv)
                     .HasForeignKey(d => d.IdNhomNhanVien)
-                    .HasConstraintName("FK__Quyen_NV__IdNhom__0E6E26BF");
+                    .HasConstraintName("FK__Quyen_NV__IdNhom__619B8048");
 
                 entity.HasOne(d => d.IdQuyenNavigation)
                     .WithMany(p => p.QuyenNv)
                     .HasForeignKey(d => d.IdQuyen)
-                    .HasConstraintName("FK__Quyen_NV__IdQuye__0F624AF8");
+                    .HasConstraintName("FK__Quyen_NV__IdQuye__628FA481");
             });
 
             modelBuilder.Entity<TraHangNcc>(entity =>

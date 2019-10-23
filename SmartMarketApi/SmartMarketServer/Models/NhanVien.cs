@@ -15,6 +15,7 @@ namespace SmartMarketServer.Models
         public string EmailNhanVien { get; set; }
         public DateTime? NgaySinhNhanVien { get; set; }
         public string GioiTinhNhanVien { get; set; }
+        public bool? TrangThaiNhanVien { get; set; }
 
         public NhomNhanVien IdNhomNhanVienNavigation { get; set; }
     }

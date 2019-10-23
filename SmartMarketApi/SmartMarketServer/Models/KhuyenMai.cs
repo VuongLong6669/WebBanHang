@@ -17,9 +17,7 @@ namespace SmartMarketServer.Models
         public DateTime? NgayBatDau { get; set; }
         public DateTime? NgayKetThuc { get; set; }
         public double? PhanTramKhuyenMai { get; set; }
-        public int? IdLevel { get; set; }
 
-        public Level IdLevelNavigation { get; set; }
         public ICollection<HangHoa> HangHoa { get; set; }
     }
 }

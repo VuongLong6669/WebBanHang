@@ -28,7 +28,7 @@ namespace SmartMarketServer.Service
             khachHang.Password = request.PassWord;
             khachHang.EmailKhachHang = request.Email;
             _context.KhachHang.Add(khachHang);
-            _context.SaveChangesAsync();
+            _context.SaveChanges();
             return khachHang;
         }
     }

@@ -15,7 +15,6 @@ namespace SmartMarketServer.Models
         public string DiaChiNhanHang { get; set; }
         public DateTime? ThoiGianNhanHang { get; set; }
         public bool? TrangThaiDonDatHang { get; set; }
-        public double? TongTienDonDatHang { get; set; }
         public int? IdKhachHang { get; set; }
         public string GhiChu { get; set; }
 

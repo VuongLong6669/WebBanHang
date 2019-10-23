@@ -13,6 +13,7 @@ namespace SmartMarketServer.Models
         public int IdLoaiHang { get; set; }
         public string TenLoaiHang { get; set; }
         public string Anh { get; set; }
+
         public ICollection<HangHoa> HangHoa { get; set; }
     }
 }
