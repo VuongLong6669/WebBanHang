@@ -20,9 +20,6 @@ namespace SmartMarketServer.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public string Avatar { get; set; }
-        public int? IdLevel { get; set; }
-
-        public Level IdLevelNavigation { get; set; }
         public ICollection<DonDatHang> DonDatHang { get; set; }
     }
 }
