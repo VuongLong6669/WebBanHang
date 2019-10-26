@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartMarketServer.Models;
 using SmartMarketServer.Requests;
+using SmartMarketServer.Response;
 using SmartMarketServer.Service;
 
 namespace SmartMarketServer.Controllers
@@ -50,7 +51,8 @@ namespace SmartMarketServer.Controllers
         }
 
         // PUT: api/KhachHangs/5
-        [HttpPut("{id}")]
+        [HttpPut]
+        [Route("edit/{id}")]
         public async Task<IActionResult> PutKhachHang([FromRoute] int id, [FromBody] KhachHang khachHang)
         {
             if (!ModelState.IsValid)
@@ -85,6 +87,15 @@ namespace SmartMarketServer.Controllers
         }
 
         // POST: api/KhachHangs
+        [HttpGet]
+        [Route("login")]
+        public ActionResult<LoginResponse> login([FromQuery] String userName, [FromQuery] String passWord )
+        {
+
+            var loginResponse = service.login(userName, passWord);
+            return Ok(loginResponse);
+        }
+
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> PostKhachHang([FromBody] CreateKHRequest request)
