@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartMarketServer.Models;
-
+using SmartMarketServer.Requests;
+using SmartMarketServer.Response;
+using SmartMarketServer.Service;
 namespace SmartMarketServer.Controllers
 {
     [Route("api/[controller]")]
@@ -14,10 +16,11 @@ namespace SmartMarketServer.Controllers
     public class DonDatHangsController : ControllerBase
     {
         private readonly QuanLyBanHangSieuThiMediaMartContext _context;
-
+        private readonly DonDatHangService service;
         public DonDatHangsController(QuanLyBanHangSieuThiMediaMartContext context)
         {
             _context = context;
+            service = new DonDatHangService();
         }
 
         // GET: api/DonDatHangs
@@ -83,17 +86,11 @@ namespace SmartMarketServer.Controllers
 
         // POST: api/DonDatHangs
         [HttpPost]
-        public async Task<IActionResult> PostDonDatHang([FromBody] DonDatHang donDatHang)
+        [Route("/add-order")]
+        public ActionResult<BaseResponse> PostDonDatHang([FromBody] OrderRequset request)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            _context.DonDatHang.Add(donDatHang);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetDonDatHang", new { id = donDatHang.IdDonDatHang }, donDatHang);
+            var response = service.createOrder(request);
+            return Ok(response);
         }
 
         // DELETE: api/DonDatHangs/5
