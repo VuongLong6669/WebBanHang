@@ -37,7 +37,7 @@ namespace SmartMarketServer.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=git.alphawaytech.com,7049;Database=QuanLyBanHangSieuThiMediaMart;User Id=sa;Password=654321aA@;Trusted_Connection=false;MultipleActiveResultSets=true;");
+                optionsBuilder.UseSqlServer("Server=git.alphawaytech.com,7049;Database=QuanLyBanHangSieuThiMediaMart;User Id=sa;Password=654321aA@;Trusted_Connection=False;MultipleActiveResultSets=true;");
             }
         }
 

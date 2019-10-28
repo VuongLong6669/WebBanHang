@@ -48,6 +48,14 @@ namespace SmartMarketServer.Controllers
             return Ok(listHH);
         }
 
+        [HttpGet]
+        [Route("get-discounts/{count}")]
+        public ActionResult<BaseResponse> GetDiscounts([FromRoute] int count)
+        {
+            var listHH = _context.HangHoa.OrderBy(a => a.CreateDate).Where(a=>a.GiaMoi>a.DonGiaBan).Take(count).ToList<HangHoa>();
+            return Ok(listHH);
+        }
+
         // GET: api/HangHoas/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetHangHoa([FromRoute] int id)

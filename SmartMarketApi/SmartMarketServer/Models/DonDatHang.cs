@@ -17,6 +17,7 @@ namespace SmartMarketServer.Models
         public bool? TrangThaiDonDatHang { get; set; }
         public int? IdKhachHang { get; set; }
         public string GhiChu { get; set; }
+        public double? TongTien { get; set; }
 
         public KhachHang IdKhachHangNavigation { get; set; }
         public ICollection<ChiTietDonDatHang> ChiTietDonDatHang { get; set; }
