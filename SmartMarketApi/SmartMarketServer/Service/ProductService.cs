@@ -30,5 +30,19 @@ namespace SmartMarketServer.Service
             //List<HangHoa> list  = conext.HangHoa.ToList<HangHoa>();
             //return list;
         }
+
+        public List<HangHoa> findByListID(List<int> listIds)
+        {
+            List<HangHoa> lHH = new List<HangHoa>();
+            foreach (int id in listIds)
+            {
+                HangHoa hh = conext.HangHoa.Where(a => a.IdHangHoa == id).First();
+                if (hh != null)
+                {
+                    lHH.Add(hh);
+                }
+            }
+            return lHH;
+        }
     }
 }

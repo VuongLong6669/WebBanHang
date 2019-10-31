@@ -17,10 +17,10 @@ namespace SmartMarketServer.Controllers
     {
         private readonly QuanLyBanHangSieuThiMediaMartContext _context;
         private readonly DonDatHangService service;
-        public DonDatHangsController(QuanLyBanHangSieuThiMediaMartContext context)
+        public DonDatHangsController()
         {
-            _context = context;
-            service = new DonDatHangService();
+            _context = new QuanLyBanHangSieuThiMediaMartContext();
+            service = new DonDatHangService(_context);
         }
 
         // GET: api/DonDatHangs
@@ -31,22 +31,19 @@ namespace SmartMarketServer.Controllers
         }
 
         // GET: api/DonDatHangs/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetDonDatHang([FromRoute] int id)
+        [HttpGet]
+        [Route("/find-by-customer/{idCustomer}")]
+        public ActionResult<List<DonDatHang>> GetDonDatHang([FromRoute] int idCustomer)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var donDatHang = await _context.DonDatHang.FindAsync(id);
-
-            if (donDatHang == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(donDatHang);
+            
+            var listDDH = service.getListByCustomerId(idCustomer);
+           
+            return Ok(listDDH);
         }
 
         // PUT: api/DonDatHangs/5

@@ -1,16 +1,12 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace SmartMarketServer.Models
+namespace SmartMarketServer.Response
 {
-    public partial class DonDatHang
+    public class DonDatHangResponse
     {
-        public DonDatHang()
-        {
-            ChiTietDonDatHang = new HashSet<ChiTietDonDatHang>();
-        }
-
         public int IdDonDatHang { get; set; }
         public DateTime? NgayTaoDonDatHang { get; set; }
         public string DiaChiNhanHang { get; set; }
@@ -20,7 +16,6 @@ namespace SmartMarketServer.Models
         public string GhiChu { get; set; }
         public double? TongTien { get; set; }
 
-        public KhachHang IdKhachHangNavigation { get; set; }
-        public ICollection<ChiTietDonDatHang> ChiTietDonDatHang { get; set; }
+        public List<ChiTietDatHangResponse> listChiTiet;
     }
 }

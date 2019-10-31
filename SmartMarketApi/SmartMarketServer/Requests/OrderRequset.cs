@@ -8,6 +8,9 @@ namespace SmartMarketServer.Requests
     public class OrderRequset
     {
         public int idKhachHang;
+        public String address;
+        public DateTime timeGetProduct;
+        public String note;
         public List<int> khuyenMais;
         public List<OrderDetailRequest> listOrdetail;
     }
