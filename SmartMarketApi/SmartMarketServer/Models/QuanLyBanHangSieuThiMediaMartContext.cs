@@ -30,6 +30,8 @@ namespace SmartMarketServer.Models
         public virtual DbSet<NhomNhanVien> NhomNhanVien { get; set; }
         public virtual DbSet<Quyen> Quyen { get; set; }
         public virtual DbSet<QuyenNv> QuyenNv { get; set; }
+        public virtual DbSet<ThuocTinh> ThuocTinh { get; set; }
+        public virtual DbSet<ThuocTinhHangHoa> ThuocTinhHangHoa { get; set; }
         public virtual DbSet<TraHangNcc> TraHangNcc { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -45,6 +47,8 @@ namespace SmartMarketServer.Models
         {
             modelBuilder.Entity<ChiTietDonDatHang>(entity =>
             {
+                entity.Property(e => e.KhuyenMai).HasDefaultValueSql("((0))");
+
                 entity.HasOne(d => d.IdDonDatHangNavigation)
                     .WithMany(p => p.ChiTietDonDatHang)
                     .HasForeignKey(d => d.IdDonDatHang)
@@ -96,13 +100,13 @@ namespace SmartMarketServer.Models
             {
                 entity.HasKey(e => e.IdDonDatHang);
 
-                entity.Property(e => e.DiaChiNhanHang).HasMaxLength(50);
-
                 entity.Property(e => e.GhiChu).HasMaxLength(256);
 
                 entity.Property(e => e.NgayTaoDonDatHang).HasColumnType("datetime");
 
                 entity.Property(e => e.ThoiGianNhanHang).HasColumnType("date");
+
+                entity.Property(e => e.TongKm).HasColumnName("TongKM");
 
                 entity.HasOne(d => d.IdKhachHangNavigation)
                     .WithMany(p => p.DonDatHang)
@@ -160,8 +164,6 @@ namespace SmartMarketServer.Models
                 entity.HasKey(e => e.IdKhachHang);
 
                 entity.Property(e => e.Avatar).HasMaxLength(128);
-
-                entity.Property(e => e.DiaChiKhachHang).HasMaxLength(50);
 
                 entity.Property(e => e.EmailKhachHang).HasMaxLength(50);
 
@@ -229,13 +231,13 @@ namespace SmartMarketServer.Models
             {
                 entity.HasKey(e => e.IdNhaCungCap);
 
-                entity.Property(e => e.DiaChiNhaCungCap).HasMaxLength(50);
+                entity.Property(e => e.NganHang).HasMaxLength(50);
 
-                entity.Property(e => e.SoDienThoaiNhaCungCap).HasMaxLength(50);
+                entity.Property(e => e.SoDienThoai).HasMaxLength(50);
 
-                entity.Property(e => e.SoTaiKhoanNhaCungCap).HasMaxLength(20);
+                entity.Property(e => e.SoTaiKhoan).HasMaxLength(20);
 
-                entity.Property(e => e.TenNhaCungCap).HasMaxLength(50);
+                entity.Property(e => e.Ten).HasMaxLength(50);
             });
 
             modelBuilder.Entity<NhanVien>(entity =>
@@ -332,6 +334,32 @@ namespace SmartMarketServer.Models
                     .WithMany(p => p.QuyenNv)
                     .HasForeignKey(d => d.IdQuyen)
                     .HasConstraintName("FK__Quyen_NV__IdQuye__628FA481");
+            });
+
+            modelBuilder.Entity<ThuocTinh>(entity =>
+            {
+                entity.Property(e => e.TenThuocTinh)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<ThuocTinhHangHoa>(entity =>
+            {
+                entity.Property(e => e.GiaTri)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.IdHangHoaNavigation)
+                    .WithMany(p => p.ThuocTinhHangHoa)
+                    .HasForeignKey(d => d.IdHangHoa)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_id_hanghoa");
+
+                entity.HasOne(d => d.IdThuocTinhNavigation)
+                    .WithMany(p => p.ThuocTinhHangHoa)
+                    .HasForeignKey(d => d.IdThuocTinh)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_id_thuoctinh");
             });
 
             modelBuilder.Entity<TraHangNcc>(entity =>

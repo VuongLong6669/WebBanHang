@@ -11,10 +11,11 @@ namespace SmartMarketServer.Models
         }
 
         public int IdNhaCungCap { get; set; }
-        public string TenNhaCungCap { get; set; }
-        public string SoTaiKhoanNhaCungCap { get; set; }
-        public string DiaChiNhaCungCap { get; set; }
-        public string SoDienThoaiNhaCungCap { get; set; }
+        public string Ten { get; set; }
+        public string SoTaiKhoan { get; set; }
+        public string DiaChi { get; set; }
+        public string SoDienThoai { get; set; }
+        public string NganHang { get; set; }
 
         public ICollection<DonDatHangNcc> DonDatHangNcc { get; set; }
     }

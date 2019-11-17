@@ -10,6 +10,8 @@ namespace SmartMarketServer.Models
         public int? IdDonDatHang { get; set; }
         public int? SoLuongDatHang { get; set; }
         public double? DonGiaDatHang { get; set; }
+        public float? KhuyenMai { get; set; }
+        public int? IdVoucher { get; set; }
 
         public DonDatHang IdDonDatHangNavigation { get; set; }
         public HangHoa IdHangHoaNavigation { get; set; }

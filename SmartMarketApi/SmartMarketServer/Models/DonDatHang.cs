@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace SmartMarketServer.Models
@@ -19,6 +18,7 @@ namespace SmartMarketServer.Models
         public int? IdKhachHang { get; set; }
         public string GhiChu { get; set; }
         public double? TongTien { get; set; }
+        public float? TongKm { get; set; }
 
         public KhachHang IdKhachHangNavigation { get; set; }
         public ICollection<ChiTietDonDatHang> ChiTietDonDatHang { get; set; }

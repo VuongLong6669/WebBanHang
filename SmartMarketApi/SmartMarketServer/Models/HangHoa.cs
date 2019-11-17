@@ -10,6 +10,7 @@ namespace SmartMarketServer.Models
             ChiTietDonDatHang = new HashSet<ChiTietDonDatHang>();
             ChiTietDonDatHangNcc = new HashSet<ChiTietDonDatHangNcc>();
             ChiTietTraHangNcc = new HashSet<ChiTietTraHangNcc>();
+            ThuocTinhHangHoa = new HashSet<ThuocTinhHangHoa>();
         }
 
         public int IdHangHoa { get; set; }
@@ -23,11 +24,13 @@ namespace SmartMarketServer.Models
         public string MoTaHangHoa { get; set; }
         public DateTime? CreateDate { get; set; }
         public double? GiaMoi { get; set; }
+        public bool? ConBan { get; set; }
 
         public LoaiHang IdLoaiHangNavigation { get; set; }
         public KhuyenMai IdVoucherNavigation { get; set; }
         public ICollection<ChiTietDonDatHang> ChiTietDonDatHang { get; set; }
         public ICollection<ChiTietDonDatHangNcc> ChiTietDonDatHangNcc { get; set; }
         public ICollection<ChiTietTraHangNcc> ChiTietTraHangNcc { get; set; }
+        public ICollection<ThuocTinhHangHoa> ThuocTinhHangHoa { get; set; }
     }
 }
