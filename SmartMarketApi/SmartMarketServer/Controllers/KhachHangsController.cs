@@ -52,19 +52,44 @@ namespace SmartMarketServer.Controllers
 
         // PUT: api/KhachHangs/5
         [HttpPut]
-        [Route("edit/{id}")]
-        public async Task<IActionResult> PutKhachHang([FromRoute] int id, [FromBody] KhachHang khachHang)
+        [Route("edit")]
+        public async Task<IActionResult> PutKhachHang([FromBody] EditKHRequest khach_hang)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != khachHang.IdKhachHang)
+            if (khach_hang == null)
             {
                 return BadRequest();
             }
 
+            KhachHang khachHang = _context.KhachHang.Find(khach_hang.Id);
+            if (checkNullAndEmpty(khach_hang.Address))
+            {
+                khachHang.DiaChiKhachHang = khach_hang.Address;
+            }
+
+            if (checkNullAndEmpty(khach_hang.Email))
+            {
+                khachHang.EmailKhachHang = khach_hang.Email;
+            }
+
+            if (checkNullAndEmpty(khach_hang.SoDienThoaiKhachHang))
+            {
+                khachHang.SoDienThoaiKhachHang = khach_hang.SoDienThoaiKhachHang;
+            }
+
+            if (checkNullAndEmpty(khach_hang.TenKhachHang))
+            {
+                khachHang.TenKhachHang = khach_hang.TenKhachHang;
+            }
+
+            if (checkNullAndEmpty(khach_hang.Password))
+            {
+                khachHang.Password = khach_hang.Password;
+            }
             _context.Entry(khachHang).State = EntityState.Modified;
 
             try
@@ -73,7 +98,7 @@ namespace SmartMarketServer.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!KhachHangExists(id))
+                if (!KhachHangExists(khach_hang.Id))
                 {
                     return NotFound();
                 }
@@ -83,7 +108,7 @@ namespace SmartMarketServer.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(khachHang);
         }
 
         // POST: api/KhachHangs
@@ -133,6 +158,11 @@ namespace SmartMarketServer.Controllers
         private bool KhachHangExists(int id)
         {
             return _context.KhachHang.Any(e => e.IdKhachHang == id);
+        }
+
+        private Boolean checkNullAndEmpty(string value)
+        {
+            return (value != null && value != "");
         }
     }
 }

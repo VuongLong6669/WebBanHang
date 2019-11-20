@@ -7,10 +7,10 @@ namespace SmartMarketServer.Models
     {
         public HangHoa()
         {
-            ChiTietDonDatHang = new HashSet<ChiTietDonDatHang>();
-            ChiTietDonDatHangNcc = new HashSet<ChiTietDonDatHangNcc>();
-            ChiTietTraHangNcc = new HashSet<ChiTietTraHangNcc>();
-            ThuocTinhHangHoa = new HashSet<ThuocTinhHangHoa>();
+            //ChiTietDonDatHang = new HashSet<ChiTietDonDatHang>();
+            //ChiTietDonDatHangNcc = new HashSet<ChiTietDonDatHangNcc>();
+            //ChiTietTraHangNcc = new HashSet<ChiTietTraHangNcc>();
+            //ThuocTinhHangHoa = new HashSet<ThuocTinhHangHoa>();
         }
 
         public int IdHangHoa { get; set; }
@@ -26,11 +26,11 @@ namespace SmartMarketServer.Models
         public double? GiaMoi { get; set; }
         public bool? ConBan { get; set; }
 
-        public LoaiHang IdLoaiHangNavigation { get; set; }
-        public KhuyenMai IdVoucherNavigation { get; set; }
-        public ICollection<ChiTietDonDatHang> ChiTietDonDatHang { get; set; }
-        public ICollection<ChiTietDonDatHangNcc> ChiTietDonDatHangNcc { get; set; }
-        public ICollection<ChiTietTraHangNcc> ChiTietTraHangNcc { get; set; }
-        public ICollection<ThuocTinhHangHoa> ThuocTinhHangHoa { get; set; }
+        //public LoaiHang IdLoaiHangNavigation { get; set; }
+        //public KhuyenMai IdVoucherNavigation { get; set; }
+        //public ICollection<ChiTietDonDatHang> ChiTietDonDatHang { get; set; }
+        //public ICollection<ChiTietDonDatHangNcc> ChiTietDonDatHangNcc { get; set; }
+        //public ICollection<ChiTietTraHangNcc> ChiTietTraHangNcc { get; set; }
+        //public ICollection<ThuocTinhHangHoa> ThuocTinhHangHoa { get; set; }
     }
 }

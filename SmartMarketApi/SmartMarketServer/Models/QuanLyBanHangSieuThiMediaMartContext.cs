@@ -54,10 +54,10 @@ namespace SmartMarketServer.Models
                     .HasForeignKey(d => d.IdDonDatHang)
                     .HasConstraintName("FK_CT_DDH");
 
-                entity.HasOne(d => d.IdHangHoaNavigation)
-                    .WithMany(p => p.ChiTietDonDatHang)
-                    .HasForeignKey(d => d.IdHangHoa)
-                    .HasConstraintName("FK_CT_HH");
+                //entity.HasOne(d => d.IdHangHoaNavigation)
+                //    .WithMany(p => p.ChiTietDonDatHang)
+                //    .HasForeignKey(d => d.IdHangHoa)
+                //    .HasConstraintName("FK_CT_HH");
             });
 
             modelBuilder.Entity<ChiTietDonDatHangNcc>(entity =>
@@ -71,10 +71,10 @@ namespace SmartMarketServer.Models
                     .HasForeignKey(d => d.IdDonDatHangNhaCungCap)
                     .HasConstraintName("FK_CTDDHNCC_DDH");
 
-                entity.HasOne(d => d.IdHangHoaNavigation)
-                    .WithMany(p => p.ChiTietDonDatHangNcc)
-                    .HasForeignKey(d => d.IdHangHoa)
-                    .HasConstraintName("FK_CTDDHNCC_HH");
+                //entity.HasOne(d => d.IdHangHoaNavigation)
+                //    .WithMany(p => p.ChiTietDonDatHangNcc)
+                //    .HasForeignKey(d => d.IdHangHoa)
+                //    .HasConstraintName("FK_CTDDHNCC_HH");
             });
 
             modelBuilder.Entity<ChiTietTraHangNcc>(entity =>
@@ -85,15 +85,15 @@ namespace SmartMarketServer.Models
 
                 entity.Property(e => e.LyDoTraHang).HasMaxLength(50);
 
-                entity.HasOne(d => d.IdHangHoaNavigation)
-                    .WithMany(p => p.ChiTietTraHangNcc)
-                    .HasForeignKey(d => d.IdHangHoa)
-                    .HasConstraintName("FK_CTTH_HH");
+                //entity.HasOne(d => d.IdHangHoaNavigation)
+                //    .WithMany(p => p.ChiTietTraHangNcc)
+                //    .HasForeignKey(d => d.IdHangHoa)
+                //    .HasConstraintName("FK_CTTH_HH");
 
-                entity.HasOne(d => d.IdTraHangNccNavigation)
-                    .WithMany(p => p.ChiTietTraHangNcc)
-                    .HasForeignKey(d => d.IdTraHangNcc)
-                    .HasConstraintName("FK_CTTH_THNCC");
+                //entity.HasOne(d => d.IdTraHangNccNavigation)
+                //    .WithMany(p => p.ChiTietTraHangNcc)
+                //    .HasForeignKey(d => d.IdTraHangNcc)
+                //    .HasConstraintName("FK_CTTH_THNCC");
             });
 
             modelBuilder.Entity<DonDatHang>(entity =>
@@ -148,15 +148,15 @@ namespace SmartMarketServer.Models
 
                 entity.Property(e => e.TenHangHoa).HasMaxLength(50);
 
-                entity.HasOne(d => d.IdLoaiHangNavigation)
-                    .WithMany(p => p.HangHoa)
-                    .HasForeignKey(d => d.IdLoaiHang)
-                    .HasConstraintName("FK_HH_LH");
+                //entity.HasOne(d => d.IdLoaiHangNavigation)
+                //    .WithMany(p => p.HangHoa)
+                //    .HasForeignKey(d => d.IdLoaiHang)
+                //    .HasConstraintName("FK_HH_LH");
 
-                entity.HasOne(d => d.IdVoucherNavigation)
-                    .WithMany(p => p.HangHoa)
-                    .HasForeignKey(d => d.IdVoucher)
-                    .HasConstraintName("FK_HH_GD");
+                //entity.HasOne(d => d.IdVoucherNavigation)
+                //    .WithMany(p => p.HangHoa)
+                //    .HasForeignKey(d => d.IdVoucher)
+                //    .HasConstraintName("FK_HH_GD");
             });
 
             modelBuilder.Entity<KhachHang>(entity =>
@@ -349,11 +349,11 @@ namespace SmartMarketServer.Models
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.HasOne(d => d.IdHangHoaNavigation)
-                    .WithMany(p => p.ThuocTinhHangHoa)
-                    .HasForeignKey(d => d.IdHangHoa)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_id_hanghoa");
+                //entity.HasOne(d => d.IdHangHoaNavigation)
+                //    .WithMany(p => p.ThuocTinhHangHoa)
+                //    .HasForeignKey(d => d.IdHangHoa)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("fk_id_hanghoa");
 
                 entity.HasOne(d => d.IdThuocTinhNavigation)
                     .WithMany(p => p.ThuocTinhHangHoa)

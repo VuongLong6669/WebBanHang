@@ -82,6 +82,18 @@ namespace SmartMarketServer.Service
             detail.IdHangHoa = hh.IdHangHoa;
             detail.SoLuongDatHang = count;
             detail.DonGiaDatHang = hh.GiaMoi;
+            double khuyenMai = 0;
+            if (hh.IdVoucher != null)
+            {
+                KhuyenMai km = _context.KhuyenMai.Find(hh.IdVoucher);
+                if (km!=null && DateTime.Compare(km.NgayBatDau.Value,DateTime.Now)>0&&DateTime.Compare(km.NgayBatDau.Value,DateTime.Now)<0)
+                {
+                    if (km.PhanTramKhuyenMai != null)
+                    {
+                        khuyenMai = (hh.DonGiaBan.Value * km.PhanTramKhuyenMai.Value) / 100;
+                    }
+                }
+            }
             _context.ChiTietDonDatHang.Add(detail);
             _context.SaveChanges();
         }
@@ -126,6 +138,7 @@ namespace SmartMarketServer.Service
             response.IdDonDatHang = ctddh.IdDonDatHang;
             response.SoLuongDatHang = ctddh.SoLuongDatHang;
             response.DonGiaDatHang = ctddh.DonGiaDatHang;
+           
             return response;
     }
     }

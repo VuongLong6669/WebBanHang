@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using SmartMarketServer.Response;
 using System.Threading.Tasks;
+using NHibernate.Linq;
 
 namespace SmartMarketServer.Service
 {
     public class ProductService
     {
-        QuanLyBanHangSieuThiMediaMartContext conext = new QuanLyBanHangSieuThiMediaMartContext();
+        QuanLyBanHangSieuThiMediaMartContext context = new QuanLyBanHangSieuThiMediaMartContext();
         public ListMatHangResponse findNewProduct(int top)
         {
             ListMatHangResponse response = new ListMatHangResponse();
@@ -24,7 +25,7 @@ namespace SmartMarketServer.Service
             //ha1.SoLuong = 4;
             response.setCode(BaseResponse.CODE_SUCESS);
             response.setMessage("Thành công");
-            List<HangHoa> lHH = conext.HangHoa.OrderBy(a => a.CreateDate).Take(top).ToList<HangHoa>();
+            List<HangHoa> lHH = context.HangHoa.OrderBy(a => a.CreateDate).Take(top).ToList<HangHoa>();
             response.listHH = lHH;
             return response;
             //List<HangHoa> list  = conext.HangHoa.ToList<HangHoa>();
@@ -36,12 +37,28 @@ namespace SmartMarketServer.Service
             List<HangHoa> lHH = new List<HangHoa>();
             foreach (int id in listIds)
             {
-                HangHoa hh = conext.HangHoa.Where(a => a.IdHangHoa == id).First();
+                HangHoa hh = context.HangHoa.Where(a => a.IdHangHoa == id).First();
                 if (hh != null)
                 {
                     lHH.Add(hh);
                 }
             }
+            return lHH;
+        }
+
+        public List<HangHoa> searchProduct(String searchText)
+        {
+
+            List<HangHoa> lHH = new List<HangHoa>();
+            lHH.Add(context.HangHoa.Find(13));
+            if (searchText == null)
+            {
+                return lHH;
+            }
+
+            //lHH = (from c in context.HangHoa
+            // where SqlMethods.Like(c.TenHangHoa, "'%" + searchText + "%'")
+            //       select c).ToList();
             return lHH;
         }
     }

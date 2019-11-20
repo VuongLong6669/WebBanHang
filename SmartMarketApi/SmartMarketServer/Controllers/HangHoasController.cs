@@ -29,7 +29,27 @@ namespace SmartMarketServer.Controllers
         public ActionResult<List<HangHoa>> GetHangHoa()
         {
             var listHH = _context.HangHoa.ToList<HangHoa>();
-            return Ok(listHH);
+            List<HangHoaResponse> responses = new List<HangHoaResponse>();
+            foreach (HangHoa hh in listHH)
+            {
+                responses.Add(setHangHoa(hh));
+            }
+            var response = responses;
+            return Ok(response);
+        }
+
+        [HttpGet]
+        [Route("search-product/{search_text}")]
+        public ActionResult<List<HangHoa>> search([FromRoute] string search_text)
+        {
+            var listHH = service.searchProduct(search_text);
+            List<HangHoaResponse> responses = new List<HangHoaResponse>();
+            foreach (HangHoa hh in listHH)
+            {
+                responses.Add(setHangHoa(hh));
+            }
+            var response = responses;
+            return Ok(response);
         }
 
         [HttpGet]
@@ -37,7 +57,13 @@ namespace SmartMarketServer.Controllers
         public ActionResult<List<HangHoa>> GetByCate([FromRoute] int id)
         {
             var listHH = _context.HangHoa.Where( a => a.IdLoaiHang == id).ToList<HangHoa>();
-            return Ok(listHH);
+            List<HangHoaResponse> responses = new List<HangHoaResponse>();
+            foreach (HangHoa hh in listHH)
+            {
+                responses.Add(setHangHoa(hh));
+            }
+            var response = responses;
+            return Ok(response);
         }
 
         [HttpGet]
@@ -45,15 +71,27 @@ namespace SmartMarketServer.Controllers
         public ActionResult<BaseResponse> GetNewsHangHoa([FromRoute] int count)
         {
             var listHH = _context.HangHoa.OrderBy(a => a.CreateDate).Take(count).ToList<HangHoa>();
-            return Ok(listHH);
+            List<HangHoaResponse> responses = new List<HangHoaResponse>();
+            foreach (HangHoa hh in listHH)
+            {
+                responses.Add(setHangHoa(hh));
+            }
+            var response = responses;
+            return Ok(response);
         }
 
         [HttpGet]
         [Route("get-discounts/{count}")]
         public ActionResult<BaseResponse> GetDiscounts([FromRoute] int count)
         {
-            var listHH = _context.HangHoa.OrderBy(a => a.CreateDate).Where(a=>a.GiaMoi>a.DonGiaBan).Take(count).ToList<HangHoa>();
-            return Ok(listHH);
+            List<HangHoa> listHH = _context.HangHoa.OrderBy(a => a.CreateDate).Where(a=>a.GiaMoi>a.DonGiaBan).Take(count).ToList<HangHoa>();
+            List<HangHoaResponse> responses = new List<HangHoaResponse>();
+            foreach(HangHoa hh in listHH)
+            {
+                responses.Add(setHangHoa(hh));
+            }
+            var response = responses;
+            return Ok(response);
         }
 
         // GET: api/HangHoas/5
@@ -65,14 +103,14 @@ namespace SmartMarketServer.Controllers
                 return BadRequest(ModelState);
             }
 
-            var hangHoa = await _context.HangHoa.FindAsync(id);
-
+            HangHoa hangHoa = await _context.HangHoa.FindAsync(id);
+            
             if (hangHoa == null)
             {
                 return NotFound();
             }
-
-            return Ok(hangHoa);
+            var response = setHangHoa(hangHoa);
+            return Ok(response);
         }
 
         // PUT: api/HangHoas/5
@@ -146,9 +184,31 @@ namespace SmartMarketServer.Controllers
             return Ok(hangHoa);
         }
 
+        private HangHoaResponse setHangHoa(HangHoa hangHoa)
+        {
+            HangHoaResponse response = new HangHoaResponse();
+            List<ThuocTinhResponse> lisTTResponse = new List<ThuocTinhResponse>();
+            List<ThuocTinhHangHoa> listTT = _context.ThuocTinhHangHoa.Where(a => a.IdHangHoa == hangHoa.IdHangHoa).ToList();
+            foreach(ThuocTinhHangHoa tthh in listTT)
+            {
+                ThuocTinh tt = _context.ThuocTinh.Find(tthh.IdThuocTinh);
+                ThuocTinhResponse ttRP = new ThuocTinhResponse();
+                if (tt != null)
+                {
+                    ttRP.name = tt.TenThuocTinh;
+                }
+                ttRP.detail = tthh.GiaTri;
+                lisTTResponse.Add(ttRP);
+            }
+            response.hangHoa = hangHoa;
+            response.listTT = lisTTResponse;
+            return response;
+        }
+
         private bool HangHoaExists(int id)
         {
             return _context.HangHoa.Any(e => e.IdHangHoa == id);
+
         }
     }
 }
