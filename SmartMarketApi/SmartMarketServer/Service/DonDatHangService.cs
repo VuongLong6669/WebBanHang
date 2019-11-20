@@ -21,7 +21,7 @@ namespace SmartMarketServer.Service
         {
             DonDatHang donDatHang = new DonDatHang();
             donDatHang.IdKhachHang = request.idKhachHang;
-            donDatHang.TrangThaiDonDatHang = false;
+            donDatHang.TrangThaiDonDatHang = 1;
             donDatHang.DiaChiNhanHang = request.address;
             donDatHang.GhiChu = request.note;
             donDatHang.ThoiGianNhanHang = request.timeGetProduct;

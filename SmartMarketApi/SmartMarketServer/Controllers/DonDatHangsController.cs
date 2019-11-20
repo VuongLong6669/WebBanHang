@@ -47,14 +47,16 @@ namespace SmartMarketServer.Controllers
         }
 
         // PUT: api/DonDatHangs/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutDonDatHang([FromRoute] int id, [FromBody] DonDatHang donDatHang)
+        [HttpPut("/cancel/{id}")]
+        public async Task<IActionResult> PutDonDatHang([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
+            DonDatHang donDatHang = _context.DonDatHang.Find(id);
+            donDatHang.TrangThaiDonDatHang = 3;
             if (id != donDatHang.IdDonDatHang)
             {
                 return BadRequest();
