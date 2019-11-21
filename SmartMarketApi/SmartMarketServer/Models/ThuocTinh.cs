@@ -10,7 +10,7 @@ namespace SmartMarketServer.Models
             ThuocTinhHangHoa = new HashSet<ThuocTinhHangHoa>();
         }
 
-        public int Id { get; set; }
+        public int IdThuocTinh { get; set; }
         public string TenThuocTinh { get; set; }
 
         public ICollection<ThuocTinhHangHoa> ThuocTinhHangHoa { get; set; }

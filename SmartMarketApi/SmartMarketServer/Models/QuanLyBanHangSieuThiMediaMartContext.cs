@@ -90,10 +90,10 @@ namespace SmartMarketServer.Models
                 //    .HasForeignKey(d => d.IdHangHoa)
                 //    .HasConstraintName("FK_CTTH_HH");
 
-                //entity.HasOne(d => d.IdTraHangNccNavigation)
-                //    .WithMany(p => p.ChiTietTraHangNcc)
-                //    .HasForeignKey(d => d.IdTraHangNcc)
-                //    .HasConstraintName("FK_CTTH_THNCC");
+                entity.HasOne(d => d.IdTraHangNccNavigation)
+                    .WithMany(p => p.ChiTietTraHangNcc)
+                    .HasForeignKey(d => d.IdTraHangNcc)
+                    .HasConstraintName("FK_CTTH_THNCC");
             });
 
             modelBuilder.Entity<DonDatHang>(entity =>
@@ -338,6 +338,8 @@ namespace SmartMarketServer.Models
 
             modelBuilder.Entity<ThuocTinh>(entity =>
             {
+                entity.HasKey(e => e.IdThuocTinh);
+
                 entity.Property(e => e.TenThuocTinh)
                     .IsRequired()
                     .HasMaxLength(50);
