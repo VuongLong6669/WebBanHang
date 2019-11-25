@@ -50,11 +50,12 @@ namespace SmartMarketServer.Service
         {
 
             List<HangHoa> lHH = new List<HangHoa>();
-            lHH.Add(context.HangHoa.Find(13));
-            if (searchText == null)
-            {
-                return lHH;
-            }
+            lHH = context.HangHoa.Where(a => a.TenHangHoa.Contains(searchText)).ToList();
+            //lHH.Add(context.HangHoa.Find(13);
+            //if (searchText == null)
+            //{
+            //    return lHH;
+            //}
 
             //lHH = (from c in context.HangHoa
             // where SqlMethods.Like(c.TenHangHoa, "'%" + searchText + "%'")
