@@ -90,6 +90,11 @@ namespace SmartMarketServer.Controllers
             {
                 khachHang.Password = khach_hang.Password;
             }
+
+            if (checkNullAndEmpty(khach_hang.Anh))
+            {
+                khachHang.Avatar = khach_hang.Anh;
+            }
             _context.Entry(khachHang).State = EntityState.Modified;
 
             try
